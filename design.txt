@@ -1,0 +1,41 @@
+REGISTER
+req :
+method : POST 
+path : /auth/register
+body:username,password,confirmPassword,email
+
+LOGIN
+method : POST 
+path : /auth/login
+
+TABLE
+#191 = default prisma
+
+=user=
+id PK varchar(191)UUID
+username varchar(40) UNIQE NOT NULL
+email varchar(40)
+password varchar(191) NOT NULL 
+
+=todo=
+id PK varchar(191)UUID
+title varchar(191) NOT NULL
+completed boolean NOT NULL default false
+dueDate Date
+user_id varchar(191)UUID NOT NULL
+
+CREATE TODO
+POST/todo
+HEADER authorization BEARER access_token
+BODY title,completed,dueDate?
+Response status : 200,400,401,500
+
+
+
+UPDATE TODO by todoId
+
+DELETE TODO by todoId
+
+GET TODOD by todoId
+
+GET ALL TODO
