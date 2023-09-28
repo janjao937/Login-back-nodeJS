@@ -7,6 +7,6 @@ const authenticateMiddleware = require("../middleware/authenticate");
 
 router.use(authenticateMiddleware);
 router.post("/",todoController.createTodo);
-
+router.get("/",todoController.getAllTodo);
 
 module.exports = router;
